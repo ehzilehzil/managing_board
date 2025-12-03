@@ -13,11 +13,19 @@ button {
 }
 
 table {
-    @apply border;
+    @apply border border-separate border-spacing-0;
+}
+
+table input {
+    @apply outline-0;
+}
+
+thead {
+    @apply border sticky top-0;
 }
 
 th {
-    @apply bg-white sticky top-0;
+    @apply border bg-gray-400;
 }
 
 td {

@@ -51,6 +51,9 @@
             Alpine.store("tags").loading.style.display = "none";
             
             alert(result.message);
+            if (result.status === "ok") {
+                Alpine.store("global").tobepw = "";
+            }
 
         };
     });   

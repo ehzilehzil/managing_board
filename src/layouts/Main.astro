@@ -20,6 +20,7 @@
     // import jspreadsheet from 'jspreadsheet-ce';
 
     document.addEventListener("alpine:initialized", async () => {
+
         Alpine.store("functions").getStatus = async () => {
             console.log("getStatus 호출");
 
@@ -78,7 +79,14 @@
                             const input = document.createElement("input");
                             input.type = "checkbox";
                             input.checked = (x === "O") ? true : false;
+                            input.style.cursor = "pointer";
                             td.appendChild(input);
+                            td.style.cursor = "pointer";
+                            td.addEventListener("click", (e) => {
+                                if (e.target.tagName.toLowerCase() === "input") return;    
+                                const checkbox = td.querySelector("input[type='checkbox']");
+                                if (checkbox) checkbox.checked = !checkbox.checked;
+                            });
                         }
                         tr.appendChild(td);
                     });
@@ -88,7 +96,7 @@
             table.appendChild(tbody);
             ss.appendChild(table);
 
-
+            
             
         };
 
